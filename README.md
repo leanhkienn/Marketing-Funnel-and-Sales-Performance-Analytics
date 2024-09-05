@@ -20,7 +20,7 @@ Below are the three data models used in this project:
 
 ---
 
-## SQL Queries
+## SQL Queries for DATA MODEL 1
 
 ### Query 1: [Description of what the query does]
 ```sql
@@ -28,3 +28,15 @@ Below are the three data models used in this project:
 SELECT column1, column2
 FROM table1
 WHERE condition;
+```
+
+
+## SQL Queries for DATA MODEL 1
+
+### Query 1: [Description of what the query does]
+```sql
+-- SQL code for Query 1
+SELECT column1, column2
+FROM table1
+WHERE condition;
+```
