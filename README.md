@@ -30,8 +30,9 @@ FROM table1
 WHERE condition;
 ```
 
+<br>
 
-## SQL Queries for DATA MODEL 1
+## SQL Queries for DATA MODEL 2
 
 ### Query 1: [Description of what the query does]
 ```sql
