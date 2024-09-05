@@ -9,7 +9,8 @@ This repository contains three data models and the accompanying SQL queries used
 Below are the three data models used in this project:
 
 ### Data Model 1
-![Data Model 1](./images/data_model_1.png)
+![image](https://github.com/user-attachments/assets/213662be-ebb6-4d49-80b2-fd668a7e18bb)
+
 
 ### Data Model 2
 ![Data Model 2](./images/data_model_2.png)
