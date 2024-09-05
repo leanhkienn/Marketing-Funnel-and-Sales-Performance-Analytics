@@ -11,12 +11,12 @@ Below are the three data models used in this project:
 ### Data Model 1
 ![image](https://github.com/user-attachments/assets/213662be-ebb6-4d49-80b2-fd668a7e18bb)
 
-
 ### Data Model 2
-![Data Model 2](./images/data_model_2.png)
+![image](https://github.com/user-attachments/assets/9bade7b8-9e06-432c-8ac7-769e57c2ba0a)
 
 ### Data Model 3
-![Data Model 3](./images/data_model_3.png)
+![image](https://github.com/user-attachments/assets/8832cd75-3da6-484d-8f83-f54c7bf3c020)
+
 
 ---
 
