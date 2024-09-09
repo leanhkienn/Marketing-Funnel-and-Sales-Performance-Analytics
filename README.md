@@ -22,12 +22,35 @@ Below are the three data models used in this project:
 
 ## SQL Queries for DATA MODEL 1
 
-### Query 1: [Description of what the query does]
+### Query 1: Find out the Minimum, maximum, average, and how Revenue fluctuates throughout the year.
+
 ```sql
--- SQL code for Query 1
-SELECT column1, column2
-FROM table1
-WHERE condition;
+WITH rev_monthly_prod AS (
+    SELECT
+        date_trunc('month', S.ORDERDATE) AS Month,
+        P.productname,
+        SUM(revenue) AS total_rev
+    FROM
+        subscriptions S
+    INNER JOIN products P
+        ON S.ProductId = P.ProductID
+    WHERE
+        S.ORDERDATE BETWEEN '2022-01-01' AND '2022-12-31'
+    GROUP BY
+        date_trunc('month', S.ORDERDATE),
+        P.productname
+)
+
+SELECT
+    REVM.productname,
+    MIN(total_rev) AS min_rev,
+    MAX(total_rev) AS max_rev,
+    AVG(total_rev) AS avg_rev,
+    STDDEV(total_rev) AS std_dev_rev
+FROM
+    rev_monthly_prod AS REVM
+GROUP BY
+    REVM.productname;
 ```
 
 <br>
