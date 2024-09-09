@@ -52,7 +52,7 @@ FROM
 GROUP BY
     REVM.productname;
 ```
-<img src="https://github.com/user-attachments/assets/8066c48b-181e-4ed7-839c-b4ef7f8e0bd4" alt="SQL Query Image" width="400"/>
+<img src="https://github.com/user-attachments/assets/8066c48b-181e-4ed7-839c-b4ef7f8e0bd4" alt="SQL Query Image" width="600"/>
 
 <br>
 
