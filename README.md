@@ -54,13 +54,6 @@ GROUP BY
 ```
 ![image](https://github.com/user-attachments/assets/8066c48b-181e-4ed7-839c-b4ef7f8e0bd4)
 
--------------------------------
-| NUM_LINK_CLICKS | NUM_USERS |
--------------------------------
-| 1               | 3         |
-| 2               | 2         |
-| 3               | 1         |
--------------------------------
 <br>
 
 ## SQL Queries for DATA MODEL 2
