@@ -52,6 +52,7 @@ FROM
 GROUP BY
     REVM.productname;
 ```
+![image](https://github.com/user-attachments/assets/8066c48b-181e-4ed7-839c-b4ef7f8e0bd4)
 
 <br>
 
