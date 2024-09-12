@@ -111,7 +111,7 @@ GROUP BY
 <br>
 
 ### Query 3: Business Problem: Flagging upsell opportunities for the Sales Team using CASE WHEN
-![image](https://github.com/user-attachments/assets/af01ecfa-0761-4dc5-85f0-dee84b59c5fa)
+Business Problem: The product team is launching a new Product offering that can be added on top of a current subscription for an increase in the customer's annual fee. The sales team has decided that they first want to reach out to a select group of cusomters to offer the new product and get feedback before offering it to the entire customer base. Below will be Query that is customized to meet the conditions of the Manager to find out potential customerS:
 
 
 ```sql
