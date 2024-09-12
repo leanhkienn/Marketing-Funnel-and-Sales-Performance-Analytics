@@ -105,7 +105,7 @@ GROUP BY
 	ORDER BY 
     COUNT(FS.SubscriptionId) DESC;
 ```
-<img src="https://github.com/user-attachments/assets/9f5d154d-0a43-4c66-b260-2858e5ece2a6" alt="SQL Query Image" width="600"/>
+<img src="https://github.com/user-attachments/assets/9f5d154d-0a43-4c66-b260-2858e5ece2a6" alt="SQL Query Image" width="400"/>
 
 
 <br>
