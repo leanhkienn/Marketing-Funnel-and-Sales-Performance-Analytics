@@ -56,6 +56,60 @@ GROUP BY
 
 <br>
 
+### Query 2: Payment funnel Analysis with Multiple CTEs
+1. Count the number of subscriptions in each payment funnel stage by incorporating the max status reached and current status per subscription.
+
+
+```sql
+	-- Create the CTE to calculate the max status for each subscription
+	WITH maxstatus AS (
+	    SELECT 
+	        PL.SUBSCRIPTIONID,
+	        MAX(PL.STATUSID) AS maxstatus
+	    FROM 
+	        paymentstatuslog PL
+	    GROUP BY 
+	        PL.SUBSCRIPTIONID
+	),
+	-- Create the CTE to determine the funnel stage
+	funnelstage AS (
+	    SELECT 
+	        Sub.CurrentStatus, 
+	        Sub.SubscriptionId,
+	        CASE 
+	            WHEN ms.maxstatus = 1 THEN 'PaymentWidgetOpened'
+	            WHEN ms.maxstatus = 2 THEN 'PaymentEntered'
+	            WHEN ms.maxstatus = 3 AND Sub.CurrentStatus = 0 THEN 'User Error with Payment Submission'
+	            WHEN ms.maxstatus = 3 AND Sub.CurrentStatus != 0 THEN 'Payment Submitted'
+	            WHEN ms.maxstatus = 4 AND Sub.CurrentStatus = 0 THEN 'Payment Processing Error with Vendor'
+	            WHEN ms.maxstatus = 4 AND Sub.CurrentStatus != 0 THEN 'Payment Success'
+	            WHEN ms.maxstatus = 5 THEN 'Complete'
+	            WHEN ms.maxstatus IS NULL THEN 'User did not start payment process'
+	            ELSE 'Unknown Status'
+	        END AS paymentfunnelstage
+	    FROM 
+	        Subscriptions Sub
+	    LEFT JOIN
+	        maxstatus ms
+	    ON
+	        Sub.SUBSCRIPTIONID = ms.SUBSCRIPTIONID
+	)
+	-- Final query to count the number of subscription IDs per payment funnel stage
+	SELECT 
+	    FS.paymentfunnelstage, 
+	    COUNT(FS.SubscriptionId) AS subscriptions
+	FROM 
+	    funnelstage FS
+	GROUP BY 
+	    FS.paymentfunnelstage
+	ORDER BY 
+    COUNT(FS.SubscriptionId) DESC;
+```
+<img src="https://github.com/user-attachments/assets/9f5d154d-0a43-4c66-b260-2858e5ece2a6" alt="SQL Query Image" width="600"/>
+
+
+<br>
+
 ## SQL Queries for DATA MODEL 2
 
 ### Query 1: [Description of what the query does]
