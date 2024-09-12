@@ -131,6 +131,29 @@ GROUP BY
 ```
 <img src="https://github.com/user-attachments/assets/52f34e81-6d47-43e8-8eee-6bfe98272253" alt="SQL Query Image" width="700"/>
 
+<br>
+
+### Query 4: Flagging upsell opportunities for the Sales Team using CASE WHEN
+Business Problem: The product team is launching a new Product offering that can be added on top of a current subscription for an increase in the customer's annual fee. The sales team has decided that they first want to reach out to a select group of cusomters to offer the new product and get feedback before offering it to the entire customer base. Below will be Query that is customized to meet the conditions of the Manager to find out potential customerS:
+
+
+```sql
+	SELECT 
+    S.CustomerID,
+    COUNT(S.ProductID) AS num_products,
+    SUM(S.NumberofUsers) AS total_users,
+    CASE 
+        WHEN SUM(S.NumberofUsers) >= 5000 OR COUNT(S.ProductID) = 1 THEN 1
+        ELSE 0  
+    END AS upsell_opportunity
+FROM
+    subscriptions S
+GROUP BY
+    S.CustomerID![image](https://github.com/user-attachments/assets/e5da8bb8-b516-4f26-a20a-6f2ec9495aba)
+
+```
+<img src="https://github.com/user-attachments/assets/52f34e81-6d47-43e8-8eee-6bfe98272253" alt="SQL Query Image" width="700"/>
+
 ## SQL Queries for DATA MODEL 2
 
 ### Query 1: [Description of what the query does]
