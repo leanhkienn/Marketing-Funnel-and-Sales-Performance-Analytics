@@ -129,7 +129,7 @@ GROUP BY
     S.CustomerID![image](https://github.com/user-attachments/assets/e5da8bb8-b516-4f26-a20a-6f2ec9495aba)
 
 ```
-<img src="https://github.com/user-attachments/assets/52f34e81-6d47-43e8-8eee-6bfe98272253" alt="SQL Query Image" width="600"/>
+<img src="https://github.com/user-attachments/assets/52f34e81-6d47-43e8-8eee-6bfe98272253" alt="SQL Query Image" width="700"/>
 
 ## SQL Queries for DATA MODEL 2
 
