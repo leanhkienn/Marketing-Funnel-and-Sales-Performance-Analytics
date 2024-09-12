@@ -110,6 +110,28 @@ GROUP BY
 
 <br>
 
+### Query 3: Business Problem: Flagging upsell opportunities for the Sales Team using CASE WHEN
+![image](https://github.com/user-attachments/assets/0c102bf2-0543-4af2-b4bf-11d09b88d470)
+
+
+
+```sql
+	SELECT 
+    S.CustomerID,
+    COUNT(S.ProductID) AS num_products,
+    SUM(S.NumberofUsers) AS total_users,
+    CASE 
+        WHEN SUM(S.NumberofUsers) >= 5000 OR COUNT(S.ProductID) = 1 THEN 1
+        ELSE 0  
+    END AS upsell_opportunity
+FROM
+    subscriptions S
+GROUP BY
+    S.CustomerID![image](https://github.com/user-attachments/assets/e5da8bb8-b516-4f26-a20a-6f2ec9495aba)
+
+```
+<img src="https://github.com/user-attachments/assets/52f34e81-6d47-43e8-8eee-6bfe98272253" alt="SQL Query Image" width="400"/>
+
 ## SQL Queries for DATA MODEL 2
 
 ### Query 1: [Description of what the query does]
