@@ -111,7 +111,7 @@ GROUP BY
 <br>
 
 ### Query 3: Business Problem: Flagging upsell opportunities for the Sales Team using CASE WHEN
-<img src="https://github.com/user-attachments/assets/0c102bf2-0543-4af2-b4bf-11d09b88d470" width="600"/>
+![image](https://github.com/user-attachments/assets/af01ecfa-0761-4dc5-85f0-dee84b59c5fa)
 
 
 ```sql
