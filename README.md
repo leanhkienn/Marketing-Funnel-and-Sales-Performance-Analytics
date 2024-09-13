@@ -273,8 +273,7 @@ SELECT
 FROM
     paymentstatuslog PL
 WHERE
-    PL.SUBSCRIPTIONID = 38844![image](https://github.com/user-attachments/assets/6dd0b5eb-8e1f-4e20-97ad-032e0669d9cc)
-
+    PL.SUBSCRIPTIONID = 38844
 ```
 
 <img src="https://github.com/user-attachments/assets/57669757-6b4e-497a-a087-e2255cbe805e" alt="SQL Query Image" width="700"/>
