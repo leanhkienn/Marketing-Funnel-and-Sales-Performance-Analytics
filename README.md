@@ -156,7 +156,7 @@ GROUP BY
 
 
 ```
-<img src="https://github.com/user-attachments/assets/52f34e81-6d47-43e8-8eee-6bfe98272253" alt="SQL Query Image" width="700"/>
+<img src="https://github.com/user-attachments/assets/d25b59e4-273f-43cf-96c3-e8fca7106cf6" alt="SQL Query Image" width="700"/>
 
 ## SQL Queries for DATA MODEL 2
 
