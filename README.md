@@ -241,6 +241,45 @@ Filter the data so that the date difference (in months) between the current mont
 
 <img src="https://github.com/user-attachments/assets/e22c0696-a35e-4f21-8ced-c3264eea22d8" alt="SQL Query Image" width="700"/>
 
+<br>
+<br>
+
+### Query 7:  Track User Payment Funnel Times with LEAD()
+
+
+Business Problem:A customer has complained that it took too long for them complete their payment process due to there being an error with the system. The customer support team brought this issue up and asked the analytics team to investigate the payment funnel time data for SubscriptionId = 38844 
+
+As subsciptions move thru the payment statuses, they are logged in the paymentstatuslog table using the statusid to show what status they moved to. They can go back and forth and move thru statuses multiple times.
+
+Each step of the payment process from the user POV is like:
+	1. The user opens the widget to initiate the payment process.
+	2. The user tupes in their credit card information.
+	3. The user clicks the submit button to complete their part of the payment process.
+	4. The product sends the data to the third-party payment company
+	5. The third-party paynent company completes the transaction and reports back.
+
+Task: For each status timestamp, calculate the time differnce between that timestamp and the next chronological timestamp in order to show how long the user was in each status before moving to the next status. I used the window function LEAD() to add another column to find out next chronological timestamp.
+
+
+
+```sql
+SELECT 
+    PL.STATUSMOVEMENTID,
+    PL.SUBSCRIPTIONID,
+    PL.STATUSID,
+    PL.MOVEMENTDATE,
+    LEAD(PL.MOVEMENTDATE, 1) OVER (ORDER BY PL.MOVEMENTDATE) as NextStatusMovementDate,
+    LEAD(PL.MOVEMENTDATE, 1) OVER (ORDER BY PL.MOVEMENTDATE) - PL.Movementdate as TIMEINSTATUS
+FROM
+    paymentstatuslog PL
+WHERE
+    PL.SUBSCRIPTIONID = 38844![image](https://github.com/user-attachments/assets/6dd0b5eb-8e1f-4e20-97ad-032e0669d9cc)
+
+```
+
+<img src="https://github.com/user-attachments/assets/57669757-6b4e-497a-a087-e2255cbe805e" alt="SQL Query Image" width="700"/>
+
+
 
 
 ## SQL Queries for DATA MODEL 2
