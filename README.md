@@ -158,6 +158,46 @@ GROUP BY
 ```
 <img src="https://github.com/user-attachments/assets/d25b59e4-273f-43cf-96c3-e8fca7106cf6" alt="SQL Query Image" width="700"/>
 
+<br>
+
+### Query 5:  Analyzing Subscription Cancelation Reasons
+
+Business Problem: When users decide to cancel, they're able to select up to 3 reasons fro canceling out of a list. Users can't select the same reason twice, and some users may even select less than 3 and have NULL values in some of the columns. Since the economy has been tough, you decide to first pull the percent of canceled subs that canceled due to "Product being too Expensive"
+
+Tasks: Using UNION and the cancelations table, calculate the percent of canceled subscriptions that reported 'Expensive' as one their cancelation reasons. Use CTE
+
+```sql
+with all_cancelation_reasons as(
+    SELECT 
+        C1.SUBSCRIPTIONID, 
+        C1.CANCELATIONREASON1 as cancelationreason
+    FROM
+        Cancelations C1
+UNION
+    SELECT 
+        C2.SUBSCRIPTIONID,  
+        C2.CANCELATIONREASON2 as cancelationreason
+    FROM
+        Cancelations C2
+UNION
+    SELECT 
+        C3.SUBSCRIPTIONID,
+        C3.CANCELATIONREASON3 as cancelationreason
+    FROM
+        Cancelations C3
+)
+
+select 
+    cast(count(
+        case when cancelationreason = 'Expensive' then subscriptionid end) as float) / count(distinct subscriptionid) 
+    as percent_expensive
+from    
+    all_cancelation_reasons;
+```
+
+<img src="https://github.com/user-attachments/assets/440c7402-7233-4cf7-a05d-946ec144e4ec" alt="SQL Query Image" width="700"/>
+
+
 ## SQL Queries for DATA MODEL 2
 
 ### Query 1: [Description of what the query does]
