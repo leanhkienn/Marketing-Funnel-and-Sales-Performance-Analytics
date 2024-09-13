@@ -210,7 +210,7 @@ Tasks: Create a monthly_revenue CTE that uses the subscriptions table and sums t
 	- Previous_revenue: the monthly revenue of previous month
 
 Only pull rows where the monthly revenue for the current month is greater than the revenue for the previous month
-Filter the data so that the date difference (in months) between the current month and previous month is 1.![image](https://github.com/user-attachments/assets/1b74c646-3c59-4a3b-bf2f-1b8976e00a69)
+Filter the data so that the date difference (in months) between the current month and previous month is 1.
 
 
 ```sql
