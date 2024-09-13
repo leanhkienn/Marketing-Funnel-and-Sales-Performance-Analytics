@@ -49,7 +49,7 @@ SELECT
     STDDEV(total_rev) AS std_dev_rev
 FROM
     rev_monthly_prod AS REVM
-GROUP BY
+GROUP BYnb 
     REVM.productname;
 ```
 <img src="https://github.com/user-attachments/assets/8066c48b-181e-4ed7-839c-b4ef7f8e0bd4" alt="SQL Query Image" width="600"/>
@@ -133,23 +133,27 @@ GROUP BY
 
 <br>
 
-### Query 4: Flagging upsell opportunities for the Sales Team using CASE WHEN
-Business Problem: The product team is launching a new Product offering that can be added on top of a current subscription for an increase in the customer's annual fee. The sales team has decided that they first want to reach out to a select group of cusomters to offer the new product and get feedback before offering it to the entire customer base. Below will be Query that is customized to meet the conditions of the Manager to find out potential customerS:
-
+### Query 4: Tracking user activity with Frontend Events
+AB Testing in 2 groups: control and treatment group of new landing pages. Pulled data from FrontEnd tracking buttons. The analytics team needs to track user activity via front end events.![image](https://github.com/user-attachments/assets/58129d22-cf43-4631-9d58-7e36071948a3)
 
 ```sql
-	SELECT 
-    S.CustomerID,
-    COUNT(S.ProductID) AS num_products,
-    SUM(S.NumberofUsers) AS total_users,
-    CASE 
-        WHEN SUM(S.NumberofUsers) >= 5000 OR COUNT(S.ProductID) = 1 THEN 1
-        ELSE 0  
-    END AS upsell_opportunity
+SELECT 
+    FL.USERID,
+    SUM(CASE WHEN FD.EVENTID = '1' THEN 1 ELSE 0 END) AS ViewedHelpCenterPage,
+    SUM(CASE WHEN FD.EVENTID = '2' THEN 1 ELSE 0 END) AS ClickedFAQs,
+    SUM(CASE WHEN FD.EVENTID = '3' THEN 1 ELSE 0 END) AS ClickedContactSupport,
+    SUM(CASE WHEN FD.EVENTID = '4' THEN 1 ELSE 0 END) AS SubmittedTicket
 FROM
-    subscriptions S
+    FrontendEventLog FL
+INNER JOIN 
+    FrontendEventDefinitions FD
+ON
+    FL.EVENTID = FD.EVENTID
+WHERE
+    FD.EVENTTYPE = 'Customer Support'
 GROUP BY
-    S.CustomerID![image](https://github.com/user-attachments/assets/e5da8bb8-b516-4f26-a20a-6f2ec9495aba)
+    FL.USERID
+
 
 ```
 <img src="https://github.com/user-attachments/assets/52f34e81-6d47-43e8-8eee-6bfe98272253" alt="SQL Query Image" width="700"/>
