@@ -195,7 +195,7 @@ from
     all_cancelation_reasons;
 ```
 
-<img src="https://github.com/user-attachments/assets/440c7402-7233-4cf7-a05d-946ec144e4ec" alt="SQL Query Image" width="600"/>
+<img src="https://github.com/user-attachments/assets/440c7402-7233-4cf7-a05d-946ec144e4ec" alt="SQL Query Image" width="500"/>
 
 
 ## SQL Queries for DATA MODEL 2
