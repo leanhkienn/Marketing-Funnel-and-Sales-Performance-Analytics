@@ -239,7 +239,7 @@ Filter the data so that the date difference (in months) between the current mont
 
 ```
 
-<img src="https://github.com/user-attachments/assets/e22c0696-a35e-4f21-8ced-c3264eea22d8" alt="SQL Query Image" width="500"/>
+<img src="https://github.com/user-attachments/assets/e22c0696-a35e-4f21-8ced-c3264eea22d8" alt="SQL Query Image" width="700"/>
 
 
 
