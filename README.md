@@ -134,7 +134,7 @@ GROUP BY
 <br>
 
 ### Query 4: Tracking user activity with Frontend Events
-AB Testing in 2 groups: control and treatment group of new landing pages. Pulled data from FrontEnd tracking buttons. The analytics team needs to track user activity via front end events.![image](https://github.com/user-attachments/assets/58129d22-cf43-4631-9d58-7e36071948a3)
+AB Testing in 2 groups: control and treatment group of new landing pages. Pulled data from FrontEnd tracking buttons. The analytics team needs to track user activity via front-end events.
 
 ```sql
 SELECT 
