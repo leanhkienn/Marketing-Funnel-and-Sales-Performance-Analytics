@@ -197,6 +197,51 @@ from
 
 <img src="https://github.com/user-attachments/assets/440c7402-7233-4cf7-a05d-946ec144e4ec" alt="SQL Query Image" width="500"/>
 
+<br>
+
+### Query 6:  Comparing MoM Revenue
+
+Business Problem: W=End-of-year reporting, and my manger wants you to put together a slide deck summarizing the top revenue highlights of the year and present it to the whole company on the all-hands call. Among other metrics and insights, my manger suggest that  Ihighlight months where revenue was up MoM.
+
+Tasks: Create a monthly_revenue CTE that uses the subscriptions table and sums the total revenue by month. Using the monthly_revenuw CTE joined to itself, pull a report that includes the:
+	- Current_month: current_month
+	- Previous_month: the prev month
+	- Current_revenue: the monthly revenue
+	- Previous_revenue: the monthly revenue of previous month
+
+Only pull rows where the monthly revenue for the current month is greater than the revenue for the previous month
+Filter the data so that the date difference (in months) between the current month and previous month is 1.![image](https://github.com/user-attachments/assets/1b74c646-3c59-4a3b-bf2f-1b8976e00a69)
+
+
+```sql
+	WITH Monthly_rev AS (select 
+	    date_trunc('month', orderdate) as order_month, 
+	    sum(revenue) as monthly_revenue
+	from 
+	    subscriptions
+	group by 
+	    date_trunc('month', orderdate)
+	)
+	
+	SELECT 
+	    m1.order_month as current_month, 
+	    m2.order_month as previous_month,
+	    m1.monthly_revenue as current_revenue,
+	    m2.monthly_revenue as previous_revenue
+	FROM 
+	    Monthly_rev m1
+	JOIN 
+	    Monthly_rev m2 
+	WHERE
+	    DATEDIFF(month, m2.order_month, m1.order_month) = 1
+	ORDER BY 
+    m1.order_month;
+
+```
+
+<img src="https://github.com/user-attachments/assets/e22c0696-a35e-4f21-8ced-c3264eea22d8" alt="SQL Query Image" width="500"/>
+
+
 
 ## SQL Queries for DATA MODEL 2
 
