@@ -276,7 +276,7 @@ WHERE
     PL.SUBSCRIPTIONID = 38844
 ```
 
-<img src="https://github.com/user-attachments/assets/57669757-6b4e-497a-a087-e2255cbe805e" alt="SQL Query Image" width="900"/>
+<img src="https://github.com/user-attachments/assets/57669757-6b4e-497a-a087-e2255cbe805e" alt="SQL Query Image" width="1000"/>
 
 
 
