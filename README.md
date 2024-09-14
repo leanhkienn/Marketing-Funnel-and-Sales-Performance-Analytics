@@ -319,3 +319,37 @@ group by
 ```
 
 <img src="https://github.com/user-attachments/assets/440c7402-7233-4cf7-a05d-946ec144e4ec" alt="SQL Query Image" width="500"/>
+
+
+<br>
+<br>
+
+## SQL Queries for DATA MODEL 3
+
+### Query 1: Tracking Running Totals with Window Functions
+
+#### Business Problem: Tracking Sales Quota Progress over Time
+The sales team works diligently to sell the product, and they have quotas that they must reach in order to earn all of their comission. Because these goals are so intimately tied to revenue, the manager of the team wants to track each sales member's performance thorughout the year. You suggest a % of quota reached metric that could be displayed on a dashboard, but the sales manager expresses her concern that a single metric won't give her visibility into their progress throughout the year. You suggest that providing a running_total of sales revenue and percent_quota metric that will be recalculated every time a sales member makes another sale. She arees, and you get started!
+
+### Task: 
+Calculate the running total of sales revenue, running_total, and the % of quota reached, percent_quota, for each sales employee on each date they make a sale. Use the sales and employees table to pull in and create the following fields:
+
+```sql
+SELECT
+    S.SALESEMPLOYEEID,
+    S.SALEDATE,
+    S.SALEAMOUNT,
+    SUM(S.SALEAMOUNT) OVER(PARTITION BY S.SALESEMPLOYEEID ORDER BY S.SALEDATE) AS RUNNING_TOTAL,
+    (CAST(SUM(S.SALEAMOUNT) OVER(PARTITION BY S.SALESEMPLOYEEID ORDER BY S.SALEDATE) AS FLOAT) / E.Quota) AS Percent_Quota
+FROM
+    Employees E
+INNER JOIN
+    Sales S
+ON
+    E.EMPLOYEEID = S.SALESEMPLOYEEID
+ORDER BY
+    S.SALESEMPLOYEEID
+```
+
+<img src="https://github.com/user-attachments/assets/965c3b69-2f0c-46be-8d66-676de67b187f" alt="SQL Query Image" width="500"/>
+
