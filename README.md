@@ -195,8 +195,7 @@ select
 from    
     all_cancelation_reasons;
 ```
-
-<img src="https://github.com/user-attachments/assets/440c7402-7233-4cf7-a05d-946ec144e4ec" alt="SQL Query Image" width="500"/>
+<img src="https://github.com/user-attachments/assets/6bf7b964-48c4-4b82-97ee-473427800f24" alt="SQL Query Image" width="500"/>
 
 <br>
 
@@ -284,10 +283,39 @@ WHERE
 
 ## SQL Queries for DATA MODEL 2
 
-### Query 1: [Description of what the query does]
+### Query 7:  Track User Payment Funnel Times with LEAD()
+
+#### Business Problems: Reducing churns for customers that didn’t renew their subscription. Manager reached out to the Analytics team and ask when will their subscription be expired. 
+
+We have 2 different product subscriptions. We want to find how many subscriptions will be expired for the coming years (given conditions that subscriptions are still active).
+
+
 ```sql
--- SQL code for Query 1
-SELECT column1, column2
-FROM table1
-WHERE condition;
+With all_subscriptions as(
+    SELECT 
+        S1.SUBSCRIPTIONID, 
+        S1.ExpirationDate
+    FROM
+        SubscriptionsProduct1 S1
+    WHERE 
+        S1.Active = '1'
+    UNION
+    SELECT 
+        S2.SUBSCRIPTIONID, 
+        S2.ExpirationDate
+    FROM
+        SubscriptionsProduct2 S2
+    WHERE
+        S2.Active = '1'
+)
+select
+    date_trunc('year', expirationdate) as exp_year, 
+    count(*) as subscriptions
+from 
+    all_subscriptions
+group by 
+    date_trunc('year', expirationdate)
+
 ```
+
+<img src="https://github.com/user-attachments/assets/440c7402-7233-4cf7-a05d-946ec144e4ec" alt="SQL Query Image" width="500"/>
