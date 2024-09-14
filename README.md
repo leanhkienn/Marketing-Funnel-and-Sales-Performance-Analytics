@@ -351,5 +351,6 @@ ORDER BY
     S.SALESEMPLOYEEID
 ```
 
-<img src="https://github.com/user-attachments/assets/965c3b69-2f0c-46be-8d66-676de67b187f" alt="SQL Query Image" width="500"/>
+<img src="https://github.com/user-attachments/assets/e98ed917-24fe-4fb6-9d95-093a2de96416" alt="SQL Query Image" width="500"/>
+
 
