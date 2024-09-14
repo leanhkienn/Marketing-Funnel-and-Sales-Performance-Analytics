@@ -9,14 +9,14 @@ This repository contains three data models and the accompanying SQL queries used
 Below are the three data models used in this project:
 
 ### Data Model 1
-<img src="https://github.com/user-attachments/assets/213662be-ebb6-4d49-80b2-fd668a7e18bb" alt="Data Model 1 Image" width="500"/>
+<img src="https://github.com/user-attachments/assets/213662be-ebb6-4d49-80b2-fd668a7e18bb" alt="Data Model 1 Image" width="550"/>
 
 ### Data Model 2
-<img src="https://github.com/user-attachments/assets/9bade7b8-9e06-432c-8ac7-769e57c2ba0a" alt="Data Model 2 Image" width="500"/>
+<img src="https://github.com/user-attachments/assets/9bade7b8-9e06-432c-8ac7-769e57c2ba0a" alt="Data Model 2 Image" width="550"/>
 
 
 ### Data Model 3
-<img src="https://github.com/user-attachments/assets/8832cd75-3da6-484d-8f83-f54c7bf3c020" alt="Data Model 2 Image" width="500"/>
+<img src="https://github.com/user-attachments/assets/8832cd75-3da6-484d-8f83-f54c7bf3c020" alt="Data Model 2 Image" width="550"/>
 
 
 ---
