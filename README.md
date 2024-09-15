@@ -283,11 +283,13 @@ WHERE
 
 ## SQL Queries for DATA MODEL 2
 
-### Query 7:  Track User Payment Funnel Times with LEAD()
+### Query 1:  Data Coming From Different Data Sources
 
-#### Business Problems: Reducing churns for customers that didn’t renew their subscription. Manager reached out to the Analytics team and ask when will their subscription be expired. 
 
-We have 2 different product subscriptions. We want to find how many subscriptions will be expired for the coming years (given conditions that subscriptions are still active).
+### Business Problems: Reducing churns for customers that didn’t renew their subscription. Manager reached out to the Analytics team and ask when will their subscription be expired. 
+
+We have 2 different product subscriptions. We want to find how many subscriptions will be expired for the coming years (given conditions that subscriptions are still active)
+
 
 
 ```sql
